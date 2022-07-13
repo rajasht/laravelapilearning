@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\ResourceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +23,32 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get("data",[DeviceController::class,'getAllData']);
 Route::get("data/{origin?}",[DeviceController::class,'getSomeData']);
-
 Route::post("add",[DeviceController::class,'addDevice']);
-
 Route::put("update",[DeviceController::class,'updateDevice']);
-
 Route::delete("delete/{delReq}",[DeviceController::class,'deleteDevice']);
+Route::get("search/{origin?}",[DeviceController::class,'searchData']);
+Route::post("validate",[DeviceController::class,'validateData']);
+
+Route::apiResource("member",ResourceController::class);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
